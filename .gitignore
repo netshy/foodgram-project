@@ -117,6 +117,14 @@ venv.bak/
 # Rope project settings
 .ropeproject
 
+# Pycharm
+.idea/
+
+# Project ignore
+/static/admin
+*/migrations/
+/media
+
 # mkdocs documentation
 /site
 

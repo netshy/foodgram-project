@@ -1,0 +1,11 @@
+{% load recipe-filter %}
+
+{% if recipe|is_in_cart:user.id %}
+    <button class="button button_style_light-blue-outline" name="purchpurchases"><span
+            class="icon-check button__icon"></span> Рецепт добавлен
+    </button>
+{% else %}
+    <button class="button button_style_light-blue" name="purchpurchases" data-out><span
+            class="icon-plus button__icon"></span>Добавить в покупки
+    </button>
+{% endif %}

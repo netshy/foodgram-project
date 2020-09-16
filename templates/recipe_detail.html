@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ recipe.name }}{% endblock %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'pages/single.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!-- Загрузка Nav бар -->
+    {% include 'nav.html' with index=True disabled_button=True %}
+
+    <main class="main container">
+        <!-- Рецепт, с подробностями -->
+        {% include 'container-single-card.html' %}
+    </main>
+{% endblock %}
+
+{% block static_js %}
+    {% csrf_token %}
+
+    <script src="{% static 'js/components/Purchpurachases.js' %}"></script>
+
+    {% if user.is_authenticated %}
+        <script src="{% static 'js/components/Favorites.js' %}"></script>
+        <script src="{% static 'js/components/Subscribe.js' %}"></script>
+    {% endif %}
+
+    <script src="{% static 'js/config/config.js' %}"></script>
+
+    <script src="{% static 'js/components/MainCards.js' %}"></script>
+    <script src="{% static 'js/components/Header.js' %}"></script>
+    <script src="{% static 'js/components/SingleCard.js' %}"></script>
+
+    <script src="{% static 'js/api/Api.js' %}"></script>
+
+    {% if user.is_anonymous %}
+        <script src="{% static 'js/template/indexNotAuth.js' %}"></script>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        <script src="{% static 'js/template/singlePage.js' %}"></script>
+    {% endif %}
+
+{% endblock %}

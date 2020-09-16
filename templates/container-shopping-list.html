@@ -1,0 +1,24 @@
+{% load static %}
+
+<div class="card-list card-list_column">
+    <ul class="shopping-list">
+        {% for purchase in shopping_list %}
+            <li class="shopping-list__item" data-id="{{ purchase.recipe.id }}">
+                <div class="recipe recipe_reverse">
+                    <a href="{% url 'recipe_detail' purchase.recipe.id %}" class="link"><img
+                            src="{% get_media_prefix %}{{ purchase.recipe.image }}" alt="Изображение блюда"
+                            class="recipe__image recipe__image_big"></a>
+                    <h3 class="recipe__title">{{ purchase.recipe.name }}</h3>
+                    <p class="recipe__text"><span class="icon-time"></span> {{ purchase.recipe.cooking_time }}
+                        минут
+                    </p>
+                </div>
+                <a href="" class="shopping-list__button link">Удалить</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    {% ifnotequal shopping_list.count 0 %}
+<a class="button button_style_light-blue" href="{% url 'print_shopping_list' %}">Скачать список</a>
+    {% endifnotequal %}
+</div>

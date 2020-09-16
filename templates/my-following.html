@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Мои подписки{% endblock %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'pages/myFollow.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!-- Загрузка Nav бар -->
+    {% include 'nav.html' with my_follower=True %}
+
+    <main class="main container">
+
+        <div class="main__header">
+            <h1 class="main__title">Мои подписки</h1>
+        </div>
+
+        {% include 'container-my-following.html' %}
+
+        <!-- Паджинатор -->
+        {% if page.has_other_pages %}
+            <ul class="pagination justify-content-center">
+                {% include "paginator.html" with items=page paginator=paginator %}
+            </ul>
+        {% endif %}
+    </main>
+{% endblock %}
+
+{% block static_js %}
+    {% csrf_token %}
+
+    <script src="{% static 'js/config/config.js' %}"></script>
+
+    <script src="{% static 'js/components/MainCards.js' %}"></script>
+    <script src="{% static 'js/components/MyFollow.js' %}"></script>
+    <script src="{% static 'js/components/Subscribe.js' %}"></script>
+    <script src="{% static 'js/components/Header.js' %}"></script>
+
+    <script src="{% static 'js/api/Api.js' %}"></script>
+    <script src="{% static 'js/template/myFollow.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% load static %}
+
+<div class="card-list">
+    {% for favorites_recipe in page %}
+        <div class="card" data-id="{{ favorites_recipe.favorites.id }}">
+            <a href="{% url 'recipe_detail' favorites_recipe.favorites.id %}" class="link"><img
+                    src="{% get_media_prefix %}{{ favorites_recipe.favorites.image }}"
+                    alt="Изображение блюда"
+                    class="card__image"></a>
+            <div class="card__body">
+                <a class="card__title link"
+                   href="{% url 'recipe_detail' favorites_recipe.favorites.id %}">{{ favorites_recipe.favorites.name }}</a>
+                <ul class="card__items">
+
+                    <!--Загрузка тегов  в рецепте-->
+                    {% include 'container-tags.html' with recipe=favorites_recipe.favorites %}
+
+                </ul>
+                <div class="card__items card__items_column">
+                    <p class="card__text"><span class="icon-time"></span> {{ favorites_recipe.favorites.cooking_time }} минут
+                    </p>
+                    <p class="card__text"><span class="icon-user"></span>
+                        <a href="{% url 'authors-recipes' favorites_recipe.favorites.author %}"
+                           style="color: black">{{ favorites_recipe.favorites.author }}
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="card__footer">
+
+                <!-- Кнопка "Добавить в покупки"-->
+                {% include 'shopping-list-button.html' with recipe=favorites_recipe.favorites %}
+
+                <!--Кнопка "избранное"-->
+                {% include 'favorites-button.html' with recipe=favorites_recipe.favorites %}
+
+            </div>
+        </div>
+    {% endfor %}
+</div>

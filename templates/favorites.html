@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Избранное{% endblock %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'pages/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!-- Загрузка Nav бар -->
+    {% include 'nav.html' with favorites=True %}
+
+    <main class="main container">
+
+        <!-- Header контейнера c тегами -->
+        <div class="main__header">
+            <h1 class="main__title">Избранное</h1>
+            {% include 'container-header-tags.html' %}
+        </div>
+
+        <!-- Карточки с рецептами -->
+        {% include 'container-favorites-recipes-items.html' %}
+
+        <!-- Паджинатор -->
+        {% if page.has_other_pages %}
+            <ul class="pagination justify-content-center">
+                {% include "paginator.html" with items=page paginator=paginator %}
+            </ul>
+        {% endif %}
+    </main>
+{% endblock %}
+
+{% block static_js %}
+    {% csrf_token %}
+
+    <script src="{% static 'js/config/config.js' %}"></script>
+
+    <script src="{% static 'js/api/Api.js' %}"></script>
+    <script src="{% static 'js/components/Favorites.js' %}"></script>
+
+    <script src="{% static 'js/components/Header.js' %}"></script>
+    <script src="{% static 'js/components/MainCards.js' %}"></script>
+    <script src="{% static 'js/components/Purchpurachases.js' %}"></script>
+    <script src="{% static 'js/components/CardList.js' %}"></script>
+
+    <script src="{% static 'js/template/favorite.js' %}"></script>
+
+{% endblock %}

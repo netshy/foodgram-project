@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load recipe-filter %}
+
+{% block title %}Рецепты{% endblock %}
+
+{% block static_css %}
+    <link rel="stylesheet" href="{% static 'pages/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!-- Загрузка Nav бар -->
+    {% include 'nav.html' with index=True %}
+
+    <main class="main container">
+
+        <!-- Header контейнера c тегами -->
+        <div class="main__header">
+            <h1 class="main__title">{{ author }}</h1>
+            {% include 'container-header-tags.html' %}
+        </div>
+
+        <!--Кнопка "Подписаться на автора"-->
+        {% include 'following-button.html' %}
+
+        <!-- Карточки с рецептами -->
+        {% include 'container-recipes-items.html' %}
+
+        <!-- Паджинатор -->
+        {% include 'paginator.html' %}
+    </main>
+{% endblock %}
+
+{% block static_js %}
+    {% csrf_token %}
+
+    <script src="{% static 'js/config/config.js' %}"></script>
+
+    <script src="{% static 'js/components/MainCards.js' %}"></script>
+
+    <script src="{% static 'js/components/Purchpurachases.js' %}"></script>
+    <script src="{% static 'js/components/Favorites.js' %}"></script>
+    <script src="{% static 'js/components/Subscribe.js' %}"></script>
+    <script src="{% static 'js/components/AuthorRecipe.js' %}"></script>
+
+    <script src="{% static 'js/components/CardList.js' %}"></script>
+    <script src="{% static 'js/components/Header.js' %}"></script>
+
+    <script src="{% static 'js/api/Api.js' %}"></script>
+    <script src="{% static 'js/components/authorRecipe.js' %}"></script>
+
+{% endblock %}
