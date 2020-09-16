@@ -183,9 +183,12 @@ class RecipeUpdateView(LoginRequiredMixin, UpdateView):
     success_url = '/'
     template_name = 'recipe-edit.html'
 
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if obj.author != self.request.user:
+            return redirect('/')
+
     def get_object(self, queryset=None):
         recipe_id = self.kwargs.get('recipe_id')
-        if Recipe.objects.filter(pk=recipe_id,
-                                 author=self.request.user).exists():
-            return get_object_or_404(Recipe, pk=recipe_id)
-        return redirect('/')  # не работает
+        return get_object_or_404(Recipe, pk=recipe_id)
+
