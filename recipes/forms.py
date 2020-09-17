@@ -48,7 +48,7 @@ class RecipeCreateOrUpdateForm(forms.ModelForm):
         #  Они сначала удаляются, а потом записываются новые всем скопом.
         recipe_obj.recipe_ingredients.all().delete()
 
-        # Записываем в связанную сущность RecipeIngredient - ингредиенты
+        # Записываем в связанную сущность RecipeIngredient ингредиенты
         ingredients_amount = self.amount
         recipe_obj.recipe_ingredients.set(
             [
@@ -59,7 +59,7 @@ class RecipeCreateOrUpdateForm(forms.ModelForm):
             ],
             bulk=False)
 
-        # Записываем в связанную сущность Tag_Recipe - теги
+        # Записываем в связанную сущность Tag_Recipe теги
         recipe_obj.tag.set([tag for tag in self.cleaned_data['tags']])
 
         self.save_m2m()

@@ -1,14 +1,15 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
 from django.db.models import Sum
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
-from django.core.paginator import Paginator
+from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
 
 from recipes.forms import RecipeCreateOrUpdateForm
-from recipes.models import Recipe, User, SubscriptionsUsers, \
-    FavoritesRecipes, ShoppingList, Tag
+from recipes.models import (Recipe, User, SubscriptionsUsers,
+                            FavoritesRecipes, ShoppingList, Tag)
 
 
 def page_not_found(request, exception):
@@ -23,7 +24,7 @@ def index(request):
     )
 
     # Проверяем фильтрацию по тегам
-    if 'filters' in request.GET:
+    if request.GET.getlist('filters'):
         filters = request.GET.getlist('filters')
         recipes_list = Recipe.objects.filter(
             tag__slug__in=filters).distinct()
@@ -46,12 +47,12 @@ def index(request):
 def authors_recipes(request, username):
     author = get_object_or_404(User, username=username)
 
-    recipes = Recipe.objects.select_related().filter(author_id=author.pk)
+    recipes = author.recipes.all()
 
     # Проверяем фильтрацию по тегам
-    if 'filters' in request.GET:
+    if request.GET.getlist('filters'):
         filters = request.GET.getlist('filters')
-        recipes = recipes.filter(
+        recipes_list = Recipe.objects.filter(
             tag__slug__in=filters).distinct()
 
     all_tags = Tag.objects.all()
@@ -90,10 +91,10 @@ def favorites(request):
         user=user)
 
     # Проверяем фильтрацию по тегам
-    if 'filters' in request.GET:
+    if request.GET.getlist('filters'):
         filters = request.GET.getlist('filters')
-        favorites_recipes = favorites_recipes.filter(
-            favorites__tag__slug__in=filters).distinct()
+        recipes_list = Recipe.objects.filter(
+            tag__slug__in=filters).distinct()
 
     all_tags = Tag.objects.all()
 
@@ -156,9 +157,11 @@ def download_shopping_list(request):
     content = ''
 
     for item in ingredients:
-        right_position_item = item.get('ingredients__title'), \
-                              str(item.get('recipeingredient__amount__sum')), \
-                              item.get('ingredients__dimension')
+        right_position_item = (
+            item.get('ingredients__title'),
+            str(item.get('recipeingredient__amount__sum')),
+            item.get('ingredients__dimension')
+        )
         content += ' '.join(right_position_item) + '\n'
 
     response = HttpResponse(content, content_type='text/plain')
@@ -169,7 +172,7 @@ def download_shopping_list(request):
 class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = Recipe
     form_class = RecipeCreateOrUpdateForm
-    success_url = '/'
+    success_url = reverse_lazy('index')
     template_name = 'recipe-new.html'
 
     def form_valid(self, form):
@@ -180,15 +183,15 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
 class RecipeUpdateView(LoginRequiredMixin, UpdateView):
     model = Recipe
     form_class = RecipeCreateOrUpdateForm
-    success_url = '/'
+    success_url = reverse_lazy('index')
     template_name = 'recipe-edit.html'
 
     def dispatch(self, request, *args, **kwargs):
         obj = self.get_object()
         if obj.author != self.request.user:
-            return redirect('/')
+            return redirect('index')
+        return super(RecipeUpdateView, self).dispatch(request, *args, **kwargs)
 
     def get_object(self, queryset=None):
         recipe_id = self.kwargs.get('recipe_id')
         return get_object_or_404(Recipe, pk=recipe_id)
-

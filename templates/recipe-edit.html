@@ -7,19 +7,18 @@
     <link rel="stylesheet" href="{% static 'pages/form.css' %}">
 {% endblock %}
 
-{% block content %}
-    <!-- Загрузка Nav бар -->
+{% block nav %}
     {% include 'nav.html' %}
+{% endblock %}
 
-    <main class="main container">
+
+{% block content %}
     <div class="main__header">
         <h1 class="main__title">Редактирование рецепта</h1>
     </div>
 
     <!--Загрузка контейнера с редактированием рецепта-->
     {% include 'container-edit-recipe.html' %}
-
-    </main>
 {% endblock %}
 
 {% block static_js %}

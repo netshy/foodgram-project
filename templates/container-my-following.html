@@ -6,7 +6,7 @@
                 <h2 class="card-user__title"><a href="{% url 'authors-recipes' authors.author %}"
                                                 style="color: black">{{ authors.author }}</a></h2>
             </div>
-            {% for recipe in authors.author.author_user.all|slice:":3" %}
+            {% for recipe in authors.author.recipes.all|slice:":3" %}
                 <div class="card-user__body">
                     <ul class="card-user__items">
                         <li class="card-user__item">
@@ -25,9 +25,9 @@
             {% endfor %}
             <li class="card-user__item">
                 {# Кол-во у автора рецептов и минус 3, которые уже есть на странице #}
-                {% if authors.author.author_user.all.count|add:-3 > 0 %}
+                {% if authors.author.recipes.all.count|add:-3 > 0 %}
                     <a href="{% url 'authors-recipes' authors.author.username %}" class="card-user__link link">Еще
-                        {{ authors.author.author_user.all.count|add:-3 }} рецептов...</a>
+                        {{ authors.author.recipes.all.count|add:-3 }} рецептов...</a>
                 {% endif %}
             </li>
 

@@ -13,9 +13,13 @@
 </head>
 <body class="body">
 
+<!-- Загрузка Nav бар -->
+{% block nav %}{% endblock %}
 
 <!-- Содержимое страницы -->
-{% block content %}{% endblock content %}
+<main class="main container">
+    {% block content %}{% endblock content %}
+</main>
 
 
 <!-- Загрузка footer -->

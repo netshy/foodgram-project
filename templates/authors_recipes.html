@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load recipe-filter %}
+{% load recipe_filter %}
 
 {% block title %}Рецепты{% endblock %}
 
@@ -8,27 +8,29 @@
     <link rel="stylesheet" href="{% static 'pages/index.css' %}">
 {% endblock %}
 
-{% block content %}
-    <!-- Загрузка Nav бар -->
+{% block nav %}
     {% include 'nav.html' with index=True %}
+{% endblock %}
 
-    <main class="main container">
+{% block content %}
+    <!-- Header контейнера c тегами -->
+    <div class="main__header">
+        <h1 class="main__title">{{ author }}</h1>
+        {% include 'container-header-tags.html' %}
+    </div>
 
-        <!-- Header контейнера c тегами -->
-        <div class="main__header">
-            <h1 class="main__title">{{ author }}</h1>
-            {% include 'container-header-tags.html' %}
-        </div>
+    <!--Кнопка "Подписаться на автора"-->
+    {% include 'following-button.html' %}
 
-        <!--Кнопка "Подписаться на автора"-->
-        {% include 'following-button.html' %}
+    <!-- Карточки с рецептами -->
 
-        <!-- Карточки с рецептами -->
-        {% include 'container-recipes-items.html' %}
+    {% include 'container-recipes-items.html' %}
 
-        <!-- Паджинатор -->
+    <!-- Паджинатор -->
+    {% if page.has_other_pages %}
         {% include 'paginator.html' %}
-    </main>
+    {% endif %}
+
 {% endblock %}
 
 {% block static_js %}

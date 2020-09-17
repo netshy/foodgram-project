@@ -7,28 +7,26 @@
     <link rel="stylesheet" href="{% static 'pages/index.css' %}">
 {% endblock %}
 
-{% block content %}
-    <!-- Загрузка Nav бар -->
+{% block nav %}
     {% include 'nav.html' with index=True disabled_button=True %}
+{% endblock %}
 
-    <main class="main container">
+{% block content %}
+    <!-- Header контейнера c тегами -->
+    <div class="main__header">
+        <h1 class="main__title">Рецепты</h1>
+        {% include 'container-header-tags.html' %}
+    </div>
 
-        <!-- Header контейнера c тегами -->
-        <div class="main__header">
-            <h1 class="main__title">Рецепты</h1>
-            {% include 'container-header-tags.html' %}
-        </div>
+    <!-- Карточки с рецептами -->
+    {% include 'container-recipes-items.html' %}
 
-        <!-- Карточки с рецептами -->
-        {% include 'container-recipes-items.html' %}
-
-        <!-- Паджинатор -->
-        {% if page.has_other_pages %}
-            <ul class="pagination justify-content-center">
-                {% include "paginator.html" with items=page paginator=paginator %}
-            </ul>
-        {% endif %}
-    </main>
+    <!-- Паджинатор -->
+    {% if page.has_other_pages %}
+        <ul class="pagination justify-content-center">
+            {% include "paginator.html" with items=page paginator=paginator %}
+        </ul>
+    {% endif %}
 
 {% endblock content %}
 
@@ -48,9 +46,7 @@
 
     {% if user.is_anonymous %}
         <script src="{% static 'js/template/indexNotAuth.js' %}"></script>
-    {% endif %}
-
-    {% if user.is_authenticated %}
+    {% else %}
         <script src="{% static 'js/components/Favorites.js' %}"></script>
         <script src="{% static 'js/template/indexAuth.js' %}"></script>
     {% endif %}

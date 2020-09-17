@@ -7,22 +7,18 @@
     <link rel="stylesheet" href="{% static 'pages/shopList.css' %}">
 {% endblock %}
 
-{% block content %}
-    <!-- Загрузка Nav бар -->
+{% block nav %}
     {% include 'nav.html' with shopping_list=True %}
+{% endblock %}
 
-    <main class="main container">
+{% block content %}
+    <!-- Header контейнера -->
+    <div class="main__header">
+        <h1 class="main__title">Список покупок</h1>
+    </div>
 
-        <!-- Header контейнера -->
-        <div class="main__header">
-            <h1 class="main__title">Список покупок</h1>
-        </div>
-
-        <!-- Карточки со списком покупок -->
-        {% include 'container-shopping-list.html' %}
-
-
-    </main>
+    <!-- Карточки со списком покупок -->
+    {% include 'container-shopping-list.html' %}
 {% endblock %}
 
 {% block static_js %}

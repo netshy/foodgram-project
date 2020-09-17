@@ -7,14 +7,13 @@
     <link rel="stylesheet" href="{% static 'pages/single.css' %}">
 {% endblock %}
 
-{% block content %}
-    <!-- Загрузка Nav бар -->
+{% block nav %}
     {% include 'nav.html' with index=True disabled_button=True %}
+{% endblock %}
 
-    <main class="main container">
-        <!-- Рецепт, с подробностями -->
-        {% include 'container-single-card.html' %}
-    </main>
+{% block content %}
+    <!-- Рецепт, с подробностями -->
+    {% include 'container-single-card.html' %}
 {% endblock %}
 
 {% block static_js %}

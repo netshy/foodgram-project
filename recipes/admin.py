@@ -1,14 +1,13 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from django.db import models
 from django.forms import CheckboxSelectMultiple
-from django.contrib.auth.admin import UserAdmin
+
+from recipes.models import (Recipe, Tag, SubscriptionsUsers, RecipeIngredient,
+                            Ingredient, FavoritesRecipes, ShoppingList)
 from users.models import User
 
-from .models import Recipe, Tag, SubscriptionsUsers, RecipeIngredient, \
-    Ingredient, FavoritesRecipes, ShoppingList
 
-
-# Register out own model admin, based on the default UserAdmin
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
     pass
@@ -21,9 +20,14 @@ class RecipeIngredientInline(admin.TabularInline):
 
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
-    list_display = ('name', 'author', 'counter', 'created')
+    def count_favorites_recipes_now(self, obj):
+        return obj.favoritesrecipes_set.count()
+
+    count_favorites_recipes_now.short_description = 'Counter favorites recipes'
+
+    list_display = ('name', 'author', 'created')
     search_fields = ('name', 'author')
-    readonly_fields = ('counter', 'created')
+    readonly_fields = ('count_favorites_recipes_now', 'created')
     empty_value_display = '-пусто-'
     list_filter = ('author', 'name', 'tag')
     formfield_overrides = {

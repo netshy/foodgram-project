@@ -7,25 +7,24 @@
     <link rel="stylesheet" href="{% static 'pages/myFollow.css' %}">
 {% endblock %}
 
-{% block content %}
-    <!-- Загрузка Nav бар -->
+{% block nav %}
     {% include 'nav.html' with my_follower=True %}
+{% endblock %}
 
-    <main class="main container">
 
-        <div class="main__header">
-            <h1 class="main__title">Мои подписки</h1>
-        </div>
+{% block content %}
+    <div class="main__header">
+        <h1 class="main__title">Мои подписки</h1>
+    </div>
 
-        {% include 'container-my-following.html' %}
+    {% include 'container-my-following.html' %}
 
-        <!-- Паджинатор -->
-        {% if page.has_other_pages %}
-            <ul class="pagination justify-content-center">
-                {% include "paginator.html" with items=page paginator=paginator %}
-            </ul>
-        {% endif %}
-    </main>
+    <!-- Паджинатор -->
+    {% if page.has_other_pages %}
+        <ul class="pagination justify-content-center">
+            {% include "paginator.html" with items=page paginator=paginator %}
+        </ul>
+    {% endif %}
 {% endblock %}
 
 {% block static_js %}

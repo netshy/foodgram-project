@@ -1,11 +1,12 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.db.models import UniqueConstraint
 
 User = get_user_model()
 
 
 class Ingredient(models.Model):
-    title = models.CharField(max_length=255, db_index=True,  unique=True)
+    title = models.CharField(max_length=255, db_index=True, unique=True)
     dimension = models.CharField(max_length=20, db_index=True)
 
     def __str__(self):
@@ -13,9 +14,9 @@ class Ingredient(models.Model):
 
 
 class Tag(models.Model):
-    name = models.CharField(max_length=10, null=True)
-    slug = models.SlugField(max_length=10, null=True, unique=True)
-    color = models.CharField(verbose_name='check box style', max_length=10,
+    name = models.CharField(max_length=50, null=True)
+    slug = models.SlugField(max_length=50, null=True, unique=True)
+    color = models.CharField(verbose_name='check box style', max_length=50,
                              null=True)
 
     def __str__(self):
@@ -32,7 +33,7 @@ class Recipe(models.Model):
         User,
         verbose_name='authors recipe',
         on_delete=models.CASCADE,
-        related_name='author_user',
+        related_name='recipes',
         db_index=True
     )
     description = models.TextField(verbose_name='recipe description')
@@ -48,9 +49,6 @@ class Recipe(models.Model):
         Tag,
         related_name='recipe_tag',
     )
-    counter = models.PositiveIntegerField(
-        verbose_name='counting the number of subscriptions', editable=False,
-        default=0)
 
     class Meta:
         ordering = ['-created']
@@ -69,9 +67,6 @@ class Recipe(models.Model):
             user=user_id, recipe=self.id
         ).exists()
         return response
-
-    def split_description(self):
-        return self.description.split('\n')
 
 
 class RecipeIngredient(models.Model):
@@ -98,7 +93,8 @@ class SubscriptionsUsers(models.Model):
     )
 
     class Meta:
-        unique_together = ['user', 'author']
+        UniqueConstraint(fields=['user', 'author'],
+                         name='unique_Subscriptions')
 
     def __str__(self):
         return f'User: {self.user}, author: {self.author}'
@@ -123,7 +119,8 @@ class FavoritesRecipes(models.Model):
     )
 
     class Meta:
-        unique_together = ['user', 'favorites']
+        UniqueConstraint(fields=['user', 'favorites'],
+                         name='unique_favorites_recipes')
 
     def __str__(self):
         return f'User: {self.user}, favorite recipe: {self.favorites.name}'
@@ -140,7 +137,8 @@ class ShoppingList(models.Model):
     )
 
     class Meta:
-        unique_together = ['user', 'recipe']
+        UniqueConstraint(fields=['user', 'recipe'],
+                         name='unique_shopping_list')
 
     def __str__(self):
         return f'User: {self.user}, recipe_id: {self.recipe.id}'
