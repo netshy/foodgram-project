@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.5'
 
 volumes:
   postgres_data:
@@ -9,7 +9,7 @@ volumes:
 services:
 
   db:
-    image: postgres:latest
+    image: postgres:12
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:

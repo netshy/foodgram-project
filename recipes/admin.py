@@ -1,9 +1,17 @@
 from django.contrib import admin
 from django.db import models
 from django.forms import CheckboxSelectMultiple
+from django.contrib.auth.admin import UserAdmin
+from users.models import User
 
 from .models import Recipe, Tag, SubscriptionsUsers, RecipeIngredient, \
     Ingredient, FavoritesRecipes, ShoppingList
+
+
+# Register out own model admin, based on the default UserAdmin
+@admin.register(User)
+class CustomUserAdmin(UserAdmin):
+    pass
 
 
 class RecipeIngredientInline(admin.TabularInline):

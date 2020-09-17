@@ -11,7 +11,7 @@ then
     echo "PostgreSQL started"
 fi
 
-python manage.py makemigrations recipe users
+python manage.py makemigrations recipes users
 python manage.py makemigrations
 python manage.py migrate
 python manage.py loaddata fixtures.json
