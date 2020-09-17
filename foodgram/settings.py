@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "*"
@@ -98,6 +98,8 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
+
+AUTH_USER_MODEL = 'users.User'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -173,6 +175,11 @@ LOGGING = {
     "loggers": {
         "django.db.backends": {"handlers": ["console"], "level": "DEBUG"}},
 }
+
+# For command initadmin
+ADMINS = (
+    ('admin', 'n3tshy@yandex.ru'),
+)
 
 # DJDT
 if DEBUG:

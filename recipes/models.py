@@ -3,10 +3,6 @@ from django.db import models
 
 User = get_user_model()
 
-User._meta.get_field('email')._unique = True
-User._meta.get_field('email').blank = False
-User._meta.get_field('email').null = False
-
 
 class Ingredient(models.Model):
     title = models.CharField(max_length=255, db_index=True,  unique=True)
