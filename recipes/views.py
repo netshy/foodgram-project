@@ -52,8 +52,8 @@ def authors_recipes(request, username):
     # Проверяем фильтрацию по тегам
     if request.GET.getlist('filters'):
         filters = request.GET.getlist('filters')
-        recipes_list = Recipe.objects.filter(
-            tag__slug__in=filters).distinct()
+        recipes = Recipe.objects.filter(
+            tag__slug__in=filters, author=author).distinct()
 
     all_tags = Tag.objects.all()
 
@@ -158,7 +158,6 @@ def download_shopping_list(request):
     content = ''
 
     for item in ingredients:
-
         right_position_item = (
             item.get('ingredients__title'),
             str(item.get('recipe_ingredients__amount__sum')),

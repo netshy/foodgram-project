@@ -13,16 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import handler404, url  # noqa
+from django.contrib import admin
+from django.urls import path, include
 from django.views.generic import RedirectView
 
 from foodgram import settings
-from django.contrib import admin
-from django.urls import path, include
-# noinspection PyRedeclaration
-from django.conf.urls import handler404, url
 
-# noinspection PyRedeclaration
-handler404 = "recipes.views.page_not_found"
+handler404 = "recipes.views.page_not_found" # noqa
 
 urlpatterns = [
     url(r'^favicon\.ico$', RedirectView.as_view(

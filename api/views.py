@@ -30,7 +30,6 @@ def remove_recipe_shopping_list(request, recipe_id):
     return JsonResponse({'success': False}, status=400)
 
 
-
 @require_http_methods(["POST"])
 def following(request):
     if request.user.is_anonymous:
