@@ -24,8 +24,8 @@ def index(request):
     )
 
     # Проверяем фильтрацию по тегам
-    if request.GET.getlist('filters'):
-        filters = request.GET.getlist('filters')
+    filters = request.GET.getlist('filters')
+    if filters:
         recipes_list = Recipe.objects.filter(
             tag__slug__in=filters).distinct()
 
@@ -50,8 +50,8 @@ def authors_recipes(request, username):
     recipes = author.recipes.all()
 
     # Проверяем фильтрацию по тегам
-    if request.GET.getlist('filters'):
-        filters = request.GET.getlist('filters')
+    filters = request.GET.getlist('filters')
+    if filters:
         recipes = Recipe.objects.filter(
             tag__slug__in=filters, author=author).distinct()
 
@@ -91,8 +91,8 @@ def favorites(request):
         user=user)
 
     # Проверяем фильтрацию по тегам
-    if request.GET.getlist('filters'):
-        filters = request.GET.getlist('filters')
+    filters = request.GET.getlist('filters')
+    if filters:
         recipes_list = FavoritesRecipes.objects.filter(
             favorites__tag__slug__in=filters, user=user).distinct()
 

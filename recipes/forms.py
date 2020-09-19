@@ -19,7 +19,7 @@ class RecipeCreateOrUpdateForm(forms.ModelForm):
         fields = ('name', 'tags', 'ingredients', 'cooking_time', 'description',
                   'image')
 
-        #  https://docs.djangoproject.com/en/3.1/ref/request-response/#django.http.QueryDict.update
+#  https://docs.djangoproject.com/en/3.1/ref/request-response/#django.http.QueryDict.update
 
     def __init__(self, data=None, *args, **kwargs):
         if data is not None:

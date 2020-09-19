@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_http_methods
 
 from recipes.models import (Recipe, ShoppingList, SubscriptionsUsers,
-                            FavoritesRecipes, User, Ingredient)
+                            FavoritesRecipes, Ingredient)
 
 
 @require_http_methods(["POST"])
@@ -14,18 +14,19 @@ def add_recipe_shopping_list(request):
         return JsonResponse({'success': False}, status=400)
 
     json_data = json.loads(request.body)
-    if ShoppingList.objects.filter(recipe=json_data.get('id'),
-                                   user=request.user).exists():
-        return JsonResponse({'success': False}, status=400)
-    else:
-        recipe = get_object_or_404(Recipe, pk=json_data.get('id'))
-        ShoppingList.objects.create(recipe=recipe, user=request.user)
+    recipe = get_object_or_404(Recipe, pk=json_data.get('id'))
+    shopping_obj, created = ShoppingList.objects.get_or_create(
+        recipe=recipe, user=request.user)
+    if created:
         return JsonResponse({'success': True})
+    return JsonResponse({'success': False}, status=400)
 
 
 @require_http_methods(["DELETE"])
 def remove_recipe_shopping_list(request, recipe_id):
-    if get_object_or_404(ShoppingList, recipe_id=recipe_id).delete()[0] != 0:
+    num, deleted = get_object_or_404(
+        ShoppingList, recipe_id=recipe_id, user=request.user).delete()
+    if num != 0:
         return JsonResponse({'success': True})
     return JsonResponse({'success': False}, status=400)
 
@@ -36,19 +37,19 @@ def following(request):
         return JsonResponse({'success': False}, status=400)
 
     json_data = json.loads(request.body)
-    if request.user.username == get_object_or_404(
-            User, id=json_data.get('id')).username:
-        return JsonResponse({'success': False}, status=400)
-    else:
-        SubscriptionsUsers.objects.create(author_id=json_data.get('id'),
-                                          user_id=request.user.id)
+    subscriptions_obj, created = SubscriptionsUsers.objects.get_or_create(
+        author_id=json_data.get('id'), user_id=request.user.id)
+    if created:
         return JsonResponse({'success': True})
+    return JsonResponse({'success': False}, status=400)
 
 
 @require_http_methods(["DELETE"])
 def unfollowing(request, author_id):
-    if get_object_or_404(ShoppingList, author_id=author_id,
-                         user_id=request.user.id).delete()[0] != 0:
+    num, deleted = get_object_or_404(
+        SubscriptionsUsers,
+        author_id=author_id, user_id=request.user.id).delete()
+    if num != 0:
         return JsonResponse({'success': True})
     return JsonResponse({'success': False}, status=400)
 
@@ -56,19 +57,19 @@ def unfollowing(request, author_id):
 @require_http_methods(["POST"])
 def add_favorite_recipe(request):
     json_data = json.loads(request.body)
-    if FavoritesRecipes.objects.filter(favorites_id=json_data.get('id'),
-                                       user_id=request.user.id).exists():
-        return JsonResponse({'success': False}, status=400)
-    else:
-        FavoritesRecipes.objects.create(favorites_id=json_data.get('id'),
-                                        user_id=request.user.id)
+    favorites_obj, created = FavoritesRecipes.objects.get_or_create(
+        favorites_id=json_data.get('id'),
+        user_id=request.user.id)
+    if created:
         return JsonResponse({'success': True})
+    return JsonResponse({'success': False}, status=400)
 
 
 @require_http_methods(["DELETE"])
 def remove_favorite_recipe(request, recipe_id):
-    if get_object_or_404(FavoritesRecipes, favorites_id=recipe_id,
-                         user_id=request.user.id).delete()[0] != 0:
+    num, deleted = get_object_or_404(FavoritesRecipes, favorites_id=recipe_id,
+                                     user_id=request.user.id).delete()
+    if num != 0:
         return JsonResponse({'success': True})
     return JsonResponse({'success': False}, status=400)
 
