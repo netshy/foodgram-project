@@ -1,7 +1,8 @@
 server {
+    client_max_body_size 5m;
 
     listen 80;
-    server_name 127.0.0.1;
+    server_name 130.193.35.74 foodgram.tk www.foodgram.tk;
 
     location / {
         proxy_pass http://web:8000;
@@ -18,5 +19,4 @@ server {
         location /media/ {
         root /foodgram/;
     }
-
 }
