@@ -129,6 +129,7 @@ class FavoritesRecipes(models.Model):
 class ShoppingList(models.Model):
     recipe = models.ForeignKey(
         Recipe,
+        related_name='shopping_list',
         on_delete=models.CASCADE,
     )
     user = models.ForeignKey(

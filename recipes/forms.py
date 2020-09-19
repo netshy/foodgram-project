@@ -12,7 +12,7 @@ class RecipeCreateOrUpdateForm(forms.ModelForm):
         queryset=Ingredient.objects.all(),
         to_field_name='title'
     )
-    amount = []
+    amount = {}  # Храним ключ - название ингредиента, значение - его кол-во
 
     class Meta:
         model = Recipe
@@ -29,11 +29,18 @@ class RecipeCreateOrUpdateForm(forms.ModelForm):
                 if tag in data:
                     data.update({'tags': tag})
 
+            index_ingr = 0
             for item in list(data):
                 if item.startswith('nameIngredient_'):
-                    data.update({'ingredients': data.get(item)})
+                    data.update(
+                        {
+                            'ingredients': data.get(item),
+                        })
                 elif item.startswith('valueIngredient_'):
-                    self.amount.append(data.get(item))
+                    self.amount[
+                        data.getlist('ingredients')[index_ingr]] = data.get(
+                        item)
+                    index_ingr += 1
 
         super().__init__(data=data, *args, **kwargs)
 
@@ -50,17 +57,21 @@ class RecipeCreateOrUpdateForm(forms.ModelForm):
 
         # Записываем в связанную сущность RecipeIngredient ингредиенты
         ingredients_amount = self.amount
+
         recipe_obj.recipe_ingredients.set(
             [
                 RecipeIngredient(recipe=recipe_obj, ingredient=ingredient,
-                                 amount=abs(int(amount)))
-                for ingredient, amount in
-                zip(self.cleaned_data['ingredients'], ingredients_amount)
+                                 amount=ingredients_amount[ingredient.title])
+                for ingredient in self.cleaned_data['ingredients']
             ],
             bulk=False)
 
         # Записываем в связанную сущность Tag_Recipe теги
         recipe_obj.tag.set([tag for tag in self.cleaned_data['tags']])
+
+        # Чтобы значения не дублировались при редактировании
+        # (т.к. они сохраняются)
+        self.amount = []
 
         self.save_m2m()
         return recipe_obj

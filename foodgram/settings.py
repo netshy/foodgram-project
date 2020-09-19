@@ -178,7 +178,7 @@ LOGGING = {
         "django.db.backends": {"handlers": ["console"], "level": "DEBUG"}},
 }
 
-# For command initadmin
+# For management command "initadmin"
 ADMINS = (
     ('admin', 'n3tshy@yandex.ru'),
 )

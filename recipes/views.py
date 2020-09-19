@@ -85,7 +85,7 @@ def recipe_detail(request, recipe_id):
 @login_required
 def favorites(request):
     user = get_object_or_404(User, username=request.user)
-    favorites_recipes = FavoritesRecipes.objects.prefetch_related(
+    recipes_list = FavoritesRecipes.objects.prefetch_related(
         'favorites__tag', 'favorites__author'
     ).filter(
         user=user)
@@ -93,12 +93,12 @@ def favorites(request):
     # Проверяем фильтрацию по тегам
     if request.GET.getlist('filters'):
         filters = request.GET.getlist('filters')
-        recipes_list = Recipe.objects.filter(
-            tag__slug__in=filters).distinct()
+        recipes_list = FavoritesRecipes.objects.filter(
+            favorites__tag__slug__in=filters, user=user).distinct()
 
     all_tags = Tag.objects.all()
 
-    paginator = Paginator(favorites_recipes, 6)
+    paginator = Paginator(recipes_list, 6)
     page_number = request.GET.get('page')
     page = paginator.get_page(page_number)
 
@@ -147,19 +147,21 @@ def my_followings(request):
     return render(request, 'my-following.html', context=context)
 
 
+@login_required
 def download_shopping_list(request):
-    recipes = Recipe.objects.filter(shoppinglist__user=request.user)
+    recipes = Recipe.objects.filter(shopping_list__user=request.user)
     ingredients = recipes.values(
-        'ingredients__title', 'ingredients__dimension'
+        'ingredients__title', 'ingredients__dimension',
     ).annotate(
-        Sum('recipeingredient__amount'))
+        Sum('recipe_ingredients__amount')).order_by()
 
     content = ''
 
     for item in ingredients:
+
         right_position_item = (
             item.get('ingredients__title'),
-            str(item.get('recipeingredient__amount__sum')),
+            str(item.get('recipe_ingredients__amount__sum')),
             item.get('ingredients__dimension')
         )
         content += ' '.join(right_position_item) + '\n'
