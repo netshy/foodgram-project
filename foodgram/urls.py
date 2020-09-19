@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import handler404, url  # noqa
 from django.contrib import admin
+from django.contrib.flatpages.views import flatpage
 from django.urls import path, include
 from django.views.generic import RedirectView
 
 from foodgram import settings
 
-handler404 = "recipes.views.page_not_found" # noqa
+handler404 = "recipes.views.page_not_found"  # noqa
 
 urlpatterns = [
     url(r'^favicon\.ico$', RedirectView.as_view(
@@ -29,9 +30,12 @@ urlpatterns = [
     path('auth/', include('users.urls')),
     path('auth/', include('django.contrib.auth.urls')),
     path('api/', include('api.urls')),
+    path('about-author/', flatpage, {'url': '/about-author/'}, name='author'),
+    path('about-spec/', flatpage, {'url': '/about-spec/'}, name='spec'),
     path('', include('recipes.urls')),
 ]
 
 if settings.DEBUG:
     import debug_toolbar
+
     urlpatterns += (path('__debug__/', include(debug_toolbar.urls)),)

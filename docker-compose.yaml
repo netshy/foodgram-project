@@ -34,7 +34,7 @@ services:
     build:
       context: ./nginx
       dockerfile: Dockerfile
-      restart: always
+    restart: always
     volumes:
       - static_volume:/foodgram/static
       - media_volume:/foodgram/media
