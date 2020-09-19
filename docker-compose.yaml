@@ -10,6 +10,7 @@ services:
 
   db:
     image: postgres:12
+    restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
@@ -33,6 +34,7 @@ services:
     build:
       context: ./nginx
       dockerfile: Dockerfile
+      restart: always
     volumes:
       - static_volume:/foodgram/static
       - media_volume:/foodgram/media
