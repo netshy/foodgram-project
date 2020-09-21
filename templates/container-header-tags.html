@@ -5,8 +5,9 @@
         {% for tag in all_tags %}
             <li class="tags__item">
                 <a id="{{ tag.slug }}"
-                   class="tags__checkbox tags__checkbox_style_{{ tag.color }} tags__checkbox_active"
-                   href="?{{request|get_filter_link:tag}}"></a>
+                   class="tags__checkbox tags__checkbox_style_{{ tag.color }}
+                    {% if tag.slug in filter_value %} tags__checkbox_active {% endif %}"
+                   href="?{{ request|get_filter_link:tag }}"></a>
                 <span class="tags__label">{{ tag.name }}</span>
             </li>
         {% endfor %}

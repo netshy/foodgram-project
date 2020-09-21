@@ -1,15 +1,14 @@
 {% load recipe_filter %}
 
-{% if user.is_authenticated %}
-    {% if user|is_following:recipe.author.id %}
-        <button class="button button_style_light-blue button_size_auto button_style_light-blue-outline"
-                name="subscribe"><span class="icon-check button__icon"></span> Отписаться от автора
+
+{% if user|is_following:recipe.author.id %}
+    <button class="button button_style_light-blue button_size_auto button_style_light-blue-outline"
+            name="subscribe"><span class="icon-check button__icon"></span> Отписаться от автора
+    </button>
+{% else %}
+    {% if not recipe.author == request.user %}
+        <button class="button button_style_light-blue button_size_auto" name="subscribe" data-out>
+            Подписаться на автора
         </button>
-    {% else %}
-        {% if not recipe.author == request.user %}
-            <button class="button button_style_light-blue button_size_auto" name="subscribe" data-out>
-                Подписаться на автора
-            </button>
-        {% endif %}
     {% endif %}
 {% endif %}

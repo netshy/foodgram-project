@@ -30,25 +30,30 @@
             </ul>
 
         </div>
-        <ul class="single-card__items">
-            <li class="single-card__item">
-                <!-- Кнопка "Добавить в покупки"-->
-                {% include 'shopping-list-button.html' %}
-            </li>
+        {% if user.is_authenticated %}
+            <ul class="single-card__items">
 
-            <li class="single-card__item">
+                <li class="single-card__item">
+                    <!-- Кнопка "Добавить в покупки"-->
+                    {% include 'shopping-list-button.html' %}
+                </li>
 
-                <!--Кнопка "Подписаться на автора"-->
-                {% include 'following-button-single-card.html' %}
+                <li class="single-card__item">
 
-        </ul>
+                    <!--Кнопка "Подписаться на автора"-->
+                    {% include 'following-button-single-card.html' %}
+
+            </ul>
+        {% endif %}
         <div class="single-card__section">
             <h3 class="single-card__section-title">Ингредиенты:</h3>
             <div class="single-card__items single-card__items_column">
 
                 {% for ingredient in ingredients %}
                     <ul class="single-card__section-item">
-                        <li>{{ ingredient.ingredient.title }} - {{ ingredient.amount }} {{ ingredient.ingredient.dimension }}.</li>
+                        <li>{{ ingredient.ingredient.title }}
+                            - {{ ingredient.amount }} {{ ingredient.ingredient.dimension }}.
+                        </li>
                     </ul>
                 {% endfor %}
 

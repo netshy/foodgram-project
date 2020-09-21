@@ -20,7 +20,7 @@ def is_following(user, author_id):
 
 @register.filter
 def get_filter_values(value):
-    return value.getlist('filter')
+    return value.getlist('filters')
 
 
 @register.filter

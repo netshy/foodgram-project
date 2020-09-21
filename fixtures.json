@@ -1,32 +1,5 @@
 [
   {
-    "model": "recipes.tag",
-    "pk": 1,
-    "fields": {
-      "name": "Завтрак",
-      "slug": "breakfast",
-      "color": "orange"
-    }
-  },
-  {
-    "model": "recipes.tag",
-    "pk": 2,
-    "fields": {
-      "name": "Обед",
-      "slug": "lunch",
-      "color": "green"
-    }
-  },
-  {
-    "model": "recipes.tag",
-    "pk": 3,
-    "fields": {
-      "name": "Ужин",
-      "slug": "dinner",
-      "color": "purple"
-    }
-  },
-  {
     "model": "recipes.ingredient",
     "pk": 1,
     "fields": {
@@ -17528,6 +17501,1404 @@
     "fields": {
       "title": "ячневая крупа",
       "dimension": "г"
+    }
+  },
+  {
+    "model": "recipes.tag",
+    "pk": 1,
+    "fields": {
+      "name": "Завтрак",
+      "slug": "breakfast",
+      "color": "orange"
+    }
+  },
+  {
+    "model": "recipes.tag",
+    "pk": 2,
+    "fields": {
+      "name": "Обед",
+      "slug": "lunch",
+      "color": "green"
+    }
+  },
+  {
+    "model": "recipes.tag",
+    "pk": 3,
+    "fields": {
+      "name": "Ужин",
+      "slug": "dinner",
+      "color": "purple"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 1,
+    "fields": {
+      "recipe": 1,
+      "ingredient": 402,
+      "amount": 3
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 2,
+    "fields": {
+      "recipe": 1,
+      "ingredient": 1034,
+      "amount": 70
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 3,
+    "fields": {
+      "recipe": 1,
+      "ingredient": 1083,
+      "amount": 200
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 4,
+    "fields": {
+      "recipe": 1,
+      "ingredient": 1374,
+      "amount": 1
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 5,
+    "fields": {
+      "recipe": 1,
+      "ingredient": 1548,
+      "amount": 1
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 6,
+    "fields": {
+      "recipe": 1,
+      "ingredient": 1686,
+      "amount": 1
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 7,
+    "fields": {
+      "recipe": 1,
+      "ingredient": 2183,
+      "amount": 50
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 8,
+    "fields": {
+      "recipe": 2,
+      "ingredient": 120,
+      "amount": 250
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 9,
+    "fields": {
+      "recipe": 2,
+      "ingredient": 209,
+      "amount": 150
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 10,
+    "fields": {
+      "recipe": 2,
+      "ingredient": 1163,
+      "amount": 5
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 11,
+    "fields": {
+      "recipe": 2,
+      "ingredient": 1212,
+      "amount": 150
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 12,
+    "fields": {
+      "recipe": 2,
+      "ingredient": 1227,
+      "amount": 100
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 13,
+    "fields": {
+      "recipe": 2,
+      "ingredient": 1715,
+      "amount": 500
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 14,
+    "fields": {
+      "recipe": 2,
+      "ingredient": 2057,
+      "amount": 7
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 15,
+    "fields": {
+      "recipe": 2,
+      "ingredient": 2183,
+      "amount": 250
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 16,
+    "fields": {
+      "recipe": 3,
+      "ingredient": 252,
+      "amount": 200
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 17,
+    "fields": {
+      "recipe": 3,
+      "ingredient": 516,
+      "amount": 200
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 18,
+    "fields": {
+      "recipe": 3,
+      "ingredient": 597,
+      "amount": 200
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 19,
+    "fields": {
+      "recipe": 3,
+      "ingredient": 1855,
+      "amount": 200
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add favorites recipes",
+      "content_type": [
+        "recipes",
+        "favoritesrecipes"
+      ],
+      "codename": "add_favoritesrecipes"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change favorites recipes",
+      "content_type": [
+        "recipes",
+        "favoritesrecipes"
+      ],
+      "codename": "change_favoritesrecipes"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete favorites recipes",
+      "content_type": [
+        "recipes",
+        "favoritesrecipes"
+      ],
+      "codename": "delete_favoritesrecipes"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view favorites recipes",
+      "content_type": [
+        "recipes",
+        "favoritesrecipes"
+      ],
+      "codename": "view_favoritesrecipes"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add ingredient",
+      "content_type": [
+        "recipes",
+        "ingredient"
+      ],
+      "codename": "add_ingredient"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change ingredient",
+      "content_type": [
+        "recipes",
+        "ingredient"
+      ],
+      "codename": "change_ingredient"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete ingredient",
+      "content_type": [
+        "recipes",
+        "ingredient"
+      ],
+      "codename": "delete_ingredient"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view ingredient",
+      "content_type": [
+        "recipes",
+        "ingredient"
+      ],
+      "codename": "view_ingredient"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add recipe",
+      "content_type": [
+        "recipes",
+        "recipe"
+      ],
+      "codename": "add_recipe"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change recipe",
+      "content_type": [
+        "recipes",
+        "recipe"
+      ],
+      "codename": "change_recipe"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete recipe",
+      "content_type": [
+        "recipes",
+        "recipe"
+      ],
+      "codename": "delete_recipe"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view recipe",
+      "content_type": [
+        "recipes",
+        "recipe"
+      ],
+      "codename": "view_recipe"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add recipe ingredient",
+      "content_type": [
+        "recipes",
+        "recipeingredient"
+      ],
+      "codename": "add_recipeingredient"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change recipe ingredient",
+      "content_type": [
+        "recipes",
+        "recipeingredient"
+      ],
+      "codename": "change_recipeingredient"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete recipe ingredient",
+      "content_type": [
+        "recipes",
+        "recipeingredient"
+      ],
+      "codename": "delete_recipeingredient"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view recipe ingredient",
+      "content_type": [
+        "recipes",
+        "recipeingredient"
+      ],
+      "codename": "view_recipeingredient"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add shopping list",
+      "content_type": [
+        "recipes",
+        "shoppinglist"
+      ],
+      "codename": "add_shoppinglist"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change shopping list",
+      "content_type": [
+        "recipes",
+        "shoppinglist"
+      ],
+      "codename": "change_shoppinglist"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete shopping list",
+      "content_type": [
+        "recipes",
+        "shoppinglist"
+      ],
+      "codename": "delete_shoppinglist"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view shopping list",
+      "content_type": [
+        "recipes",
+        "shoppinglist"
+      ],
+      "codename": "view_shoppinglist"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add subscriptions users",
+      "content_type": [
+        "recipes",
+        "subscriptionsusers"
+      ],
+      "codename": "add_subscriptionsusers"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change subscriptions users",
+      "content_type": [
+        "recipes",
+        "subscriptionsusers"
+      ],
+      "codename": "change_subscriptionsusers"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete subscriptions users",
+      "content_type": [
+        "recipes",
+        "subscriptionsusers"
+      ],
+      "codename": "delete_subscriptionsusers"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view subscriptions users",
+      "content_type": [
+        "recipes",
+        "subscriptionsusers"
+      ],
+      "codename": "view_subscriptionsusers"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add tag",
+      "content_type": [
+        "recipes",
+        "tag"
+      ],
+      "codename": "add_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change tag",
+      "content_type": [
+        "recipes",
+        "tag"
+      ],
+      "codename": "change_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete tag",
+      "content_type": [
+        "recipes",
+        "tag"
+      ],
+      "codename": "delete_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view tag",
+      "content_type": [
+        "recipes",
+        "tag"
+      ],
+      "codename": "view_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add user",
+      "content_type": [
+        "users",
+        "user"
+      ],
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change user",
+      "content_type": [
+        "users",
+        "user"
+      ],
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete user",
+      "content_type": [
+        "users",
+        "user"
+      ],
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view user",
+      "content_type": [
+        "users",
+        "user"
+      ],
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": [
+        "admin",
+        "logentry"
+      ],
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": [
+        "admin",
+        "logentry"
+      ],
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": [
+        "admin",
+        "logentry"
+      ],
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": [
+        "admin",
+        "logentry"
+      ],
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add permission",
+      "content_type": [
+        "auth",
+        "permission"
+      ],
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change permission",
+      "content_type": [
+        "auth",
+        "permission"
+      ],
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": [
+        "auth",
+        "permission"
+      ],
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view permission",
+      "content_type": [
+        "auth",
+        "permission"
+      ],
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add group",
+      "content_type": [
+        "auth",
+        "group"
+      ],
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change group",
+      "content_type": [
+        "auth",
+        "group"
+      ],
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete group",
+      "content_type": [
+        "auth",
+        "group"
+      ],
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view group",
+      "content_type": [
+        "auth",
+        "group"
+      ],
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add content type",
+      "content_type": [
+        "contenttypes",
+        "contenttype"
+      ],
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change content type",
+      "content_type": [
+        "contenttypes",
+        "contenttype"
+      ],
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": [
+        "contenttypes",
+        "contenttype"
+      ],
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view content type",
+      "content_type": [
+        "contenttypes",
+        "contenttype"
+      ],
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add session",
+      "content_type": [
+        "sessions",
+        "session"
+      ],
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change session",
+      "content_type": [
+        "sessions",
+        "session"
+      ],
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete session",
+      "content_type": [
+        "sessions",
+        "session"
+      ],
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view session",
+      "content_type": [
+        "sessions",
+        "session"
+      ],
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add site",
+      "content_type": [
+        "sites",
+        "site"
+      ],
+      "codename": "add_site"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change site",
+      "content_type": [
+        "sites",
+        "site"
+      ],
+      "codename": "change_site"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete site",
+      "content_type": [
+        "sites",
+        "site"
+      ],
+      "codename": "delete_site"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view site",
+      "content_type": [
+        "sites",
+        "site"
+      ],
+      "codename": "view_site"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add flat page",
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "codename": "add_flatpage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change flat page",
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "codename": "change_flatpage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete flat page",
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "codename": "delete_flatpage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view flat page",
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "codename": "view_flatpage"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "cspk8txrd21mp7w2gp11wk0kjc3wv7im",
+    "fields": {
+      "session_data": ".eJxVjDsOwjAQBe_iGln-fyjpOYNl765xADlSnFSIu0OkFNC-mXkvlvK2trQNWtKE7MwUO_1uJcOD-g7wnvtt5jD3dZkK3xV-0MGvM9Lzcrh_By2P9q2rCFJXBIFFkIxSVvBkohEetY-GVHG-atDFyojKagdgc_DFRYCAsrL3B-WyOAs:1kJcIG:ybWy9E8Cu6L6LVfL1sb-JruakDXf0VN51jzKgXci0PE",
+      "expire_date": "2020-10-03T12:48:44.562Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "fatazz185rpdd3bptkgj76l2c6kiad3e",
+    "fields": {
+      "session_data": ".eJxVjDsOwjAQBe_iGlnxP6ak5wzWrneNA8iR4qRC3B0ipYD2zcx7iQTbWtPWeUkTibNQ4vS7IeQHtx3QHdptlnlu6zKh3BV50C6vM_Hzcrh_BxV6_dYlhxg1Dtb4gQsE5zHwqLW37DA7tkbl0aliDBMWVsp4TQgOkaKPyon3B-LoOAU:1kJYT0:NGhif5WbS6aq0QLBICbl0rFOEIUiQ8S0xQM2XG844Jg",
+      "expire_date": "2020-10-03T08:43:34.399Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "qb2x9iknhzivrsbh9wjecfv5bqvb0be3",
+    "fields": {
+      "session_data": ".eJxVjDsOwyAQBe9CHSEwH0PK9D4DWtglOIlAMnYV5e6xJRdJ-2bmvVmAbS1h67SEGdmVKXb53SKkJ9UD4APqvfHU6rrMkR8KP2nnU0N63U7376BAL3s9qGTAKU844khRyGyiA9AiCVTSyOw0eJ2tH4BiktlmB6T3ygo0zhr2-QL0pDgx:1kKAe1:bX3iZKge7v0gO0nNfcpn2N0p3w3QxOMpC94pHEJi3EU",
+      "expire_date": "2020-10-05T01:29:29.349Z"
+    }
+  },
+  {
+    "model": "sites.site",
+    "fields": {
+      "domain": "foodgram.tk",
+      "name": "foodgram.tk"
+    }
+  },
+  {
+    "model": "flatpages.flatpage",
+    "pk": 1,
+    "fields": {
+      "url": "/about-author/",
+      "title": "Об авторе",
+      "content": "<img src=\"https://i.ibb.co/M6G0n2H/image.png\" alt=\"Автор\" style=\"height:150px;width:150px;\"></a><h2>Автор сайта - Лундак Иван Игоревич </h2>\r\n\r\n\r\n<p>\r\n<h2>Это мой Git репозиторий: </h2>\r\n<a href=\"https://github.com/netshy?tab=repositories\"><img alt=\"GitHub icon\" src=\"https://img.icons8.com/doodle/2x/github.png\" style=\"height:48px;width:48px;\"></a> \r\n</p>\r\n\r\n\r\n<p>\r\n<h2>Мои контакты:</h2>\r\n<a href=\"https://t.me/NetshY\"><img src=\"https://img.icons8.com/dusk/2x/telegram-app.png\" style=\"height: 64px; width: 64px;\"></a> \r\n<a href=\"https://hh.ru/resume/12d66fbfff0529daa00039ed1f766155557333\"><img alt=\"Profile icon\" src=\"https://img.icons8.com/dusk/2x/contract-job.png\" style=\"height: 64px; width: 64px;\"></a>\r\n<a href=\"https://www.linkedin.com/in/ivan-lundak-a978a31b5\"><img alt=\"LinkedIn icon\" src=\"https://img.icons8.com/dusk/2x/linkedin.png\" style=\"height: 64px; width: 64px;\"></a>\r\n</p>\r\n\r\n<p>\r\n<h2>А это моя кружка с чаем:</h2>\r\n <img src=\"https://i.ibb.co/4tyTF9J/cup-of-tea.jpg\" style=\"height:200px;width:250px;\" alt=\"Это вкусный чаек\">\r\n</p>\r\n\r\n<p>\r\n<h2>Меня вдохновляют:</h2>\r\nПутешествия, прогулки, приятные разговоры. В моей работе, мне помогает оставаться на плаву поддержка любимой девушки, вкусный чай и живой интерес к различным кейсам, которые несут за собой новый увлекательный опыт (или не очень) и делают меня лучше, как специалиста.\r\n</p>",
+      "enable_comments": false,
+      "template_name": "flatpages/default.html",
+      "registration_required": false,
+      "sites": [
+        [
+          "foodgram.tk"
+        ]
+      ]
+    }
+  },
+  {
+    "model": "flatpages.flatpage",
+    "pk": 2,
+    "fields": {
+      "url": "/about-spec/",
+      "title": "О технологиях",
+      "content": "<p>\r\n<h2>Для создания проекта использовал:</h2>\r\nPython, Django, Docker, Nginx, Gunicorn, Git, GitHub actions.\r\n</p>",
+      "enable_comments": false,
+      "template_name": "flatpages/default.html",
+      "registration_required": false,
+      "sites": [
+        [
+          "foodgram.tk"
+        ]
+      ]
+    }
+  },
+  {
+    "model": "users.user",
+    "fields": {
+      "password": "pbkdf2_sha256$216000$SoSyI6zWFKwD$APyUqBQXrP51lTcl2ooW8oARrzHQ0rXsWHsYcWEdwoY=",
+      "last_login": "2020-09-19T08:43:03Z",
+      "is_superuser": true,
+      "username": "netshy",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2020-09-19T08:40:21Z",
+      "email": "n3tshy@yandex.ru",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "fields": {
+      "password": "pbkdf2_sha256$216000$bSVEQzWfasx1$ZzbLVieDFriYmFKtGv4F2skS9+JBAWbGOkdB16KOFiw=",
+      "last_login": "2020-09-19T12:48:44.559Z",
+      "is_superuser": false,
+      "username": "света",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-09-19T12:28:30.398Z",
+      "email": "KaptainKakao@yandex.ru",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "fields": {
+      "password": "pbkdf2_sha256$216000$4TaAXPbldlaa$TFtgB2B16i4mly0RtLFjitNsTiP3EENBKsSVVVQLq/c=",
+      "last_login": "2020-09-21T01:29:29.346Z",
+      "is_superuser": false,
+      "username": "Roxe",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-09-21T01:29:28.579Z",
+      "email": "test@test.ru",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "recipes.shoppinglist",
+    "pk": 1,
+    "fields": {
+      "recipe": 1,
+      "user": [
+        "netshy"
+      ]
+    }
+  },
+  {
+    "model": "recipes.shoppinglist",
+    "pk": 2,
+    "fields": {
+      "recipe": 2,
+      "user": [
+        "netshy"
+      ]
+    }
+  },
+  {
+    "model": "recipes.shoppinglist",
+    "pk": 3,
+    "fields": {
+      "recipe": 1,
+      "user": [
+        "света"
+      ]
+    }
+  },
+  {
+    "model": "recipes.shoppinglist",
+    "pk": 4,
+    "fields": {
+      "recipe": 2,
+      "user": [
+        "Roxe"
+      ]
+    }
+  },
+  {
+    "model": "recipes.favoritesrecipes",
+    "pk": 1,
+    "fields": {
+      "favorites": 1,
+      "user": [
+        "света"
+      ]
+    }
+  },
+  {
+    "model": "recipes.favoritesrecipes",
+    "pk": 2,
+    "fields": {
+      "favorites": 2,
+      "user": [
+        "Roxe"
+      ]
+    }
+  },
+  {
+    "model": "recipes.subscriptionsusers",
+    "pk": 1,
+    "fields": {
+      "user": [
+        "Roxe"
+      ],
+      "author": [
+        "netshy"
+      ]
+    }
+  },
+  {
+    "model": "recipes.subscriptionsusers",
+    "pk": 2,
+    "fields": {
+      "user": [
+        "netshy"
+      ],
+      "author": [
+        "света"
+      ]
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 1,
+    "fields": {
+      "name": "Как приготовить пиццу в домашних условиях",
+      "author": [
+        "netshy"
+      ],
+      "description": "Пицца - замечательное блюдо для быстрого перекуса, неожиданных гостей и просто, чтобы разнообразить твое меню.\r\n\r\nМногие хозяйки, боясь лишних хлопот, предпочитают не возиться с этим блюдом самостоятельно, а заказать в пиццерии. Однако, если ты узнаешь, что приготовить пиццу в домашних условиях не составляет никакого труда, то наверняка подружишься с этим итальянским блюдом и порадуешь себя и своих гостей изысканным вкусом.\r\n\r\nВ теплом молоке размешай дрожжи и сахар и оставь в теплом месте на 10-15 минут.\r\nКогда появятся пузырьки, вылей опару в просеянную муку и туда же добавь яйцо. Посоли, добавь специи и вымеси тесто до однородности.\r\nРаскатай тесто в круг по размеру формы.\r\nВыложи тесто в смазанную жиром форму или противень. Чтобы края пиццы были красивыми, защипни их вовнутрь.\r\nПриготовь начинку. Порежь толстыми полосками салями, маслины и грибы разрежь пополам, помидоры нарежь кружочками, измельчи зелень. Сыр потри на крупной терке.\r\nСмажь тесто кетчупом. Сверху в произвольном порядке выкладывай все ингредиенты, кроме сыра и зелени.\r\nОтправь пиццу в духовку, разогретую до 200°С, примерно на 15-20 минут, чтобы приготовилось тесто - края пиццы должны немного подрумяниться.\r\nДостань пиццу, посыпь ее зеленью, тертым сыром и снова поставь в духовку на 5-10 минут.",
+      "cooking_time": 50,
+      "image": "recipe/44b_depositphotos_23796179_s_2019.jpg",
+      "created": "2020-09-19T12:15:57.061Z",
+      "tag": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 2,
+    "fields": {
+      "name": "Cпагетти Карбонара",
+      "author": [
+        "netshy"
+      ],
+      "description": "Итальянцы очень любят эту пасту. Собственно, Карбонара называют сам соус из яиц и сыра, который доводится до готовности жаром только что сваренных спагетти и от этого делает пасту невероятно бархатистой и нежной. Это очень вкусная и питательная паста, которая обязательно придется по вкусу твоему любимому!\r\n\r\nДоведи до кипения 4 л воды в большой кастрюле.\r\n\r\nПока вода нагревается, в большой сковороде на среднем огне разогрей оливковое масло до той кондиции, пока оно не начнет закипать, но не будет дымиться.\r\n\r\nБекон разрежь вдоль пополам, а затем поперек на маленькие кусочки. Жарь его, помешивая, пока он не станет хрустящим.\r\n\r\nВлей вино и готовь, пока запах алкоголя не испарится, а вино слегка не уварится, 6-8 мин.\r\n\r\nТеперь сними с огня и накрой крышкой, чтобы сохранялось тепло.\r\n\r\nВ маленькой миске взбей вилкой яйца с сыром и чесноком.\r\n\r\nКогда вода закипит, засыпь в кастрюлю спагетти и 1 ст. л. обычной соли.\r\n\r\nОсторожно перемешивай, чтобы макароны не слипались. Вари до состояния \"аль данте\".\r\n\r\nОткинь пасту на дуршлаг, слей воду, сохранив полстакана. Дай спагетти чуть подсохнуть в течение 5-10 сек. (они должны оставаться слегка влажными), затем переложи в подогретую сервировочную миску.\r\n\r\nЕсли макароны окажутся слишком сухими, добавь немного воды от варки и размешай.\r\n\r\nТеперь самое важное! Немедленно вылей на горячие спагетти яичную смесь, посыпь 1 ч. л. хлопьев морской соли или неполной чайной ложкой обычной соли, хорошо перемешай. Вылей в макароны смесь бекона и уваренного вина, щедро приправь черным перцем и тщательно перемешай. Сразу подать на стол.",
+      "cooking_time": 25,
+      "image": "recipe/906_pasta_retsepty_s_foto_depositphotos_69008839.jpg",
+      "created": "2020-09-19T12:20:45.147Z",
+      "tag": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 3,
+    "fields": {
+      "name": "Каннеллони",
+      "author": [
+        "света"
+      ],
+      "description": "Кешью замочить, заблендерить с водой. Смешать томат, соус кешью и макароны. Выпекать в духовке 20 мин",
+      "cooking_time": 20,
+      "image": "recipe/2780621383.jpg",
+      "created": "2020-09-19T12:34:30.002Z",
+      "tag": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2020-09-19T08:40:47.608Z",
+      "user": [
+        "netshy"
+      ],
+      "content_type": [
+        "sites",
+        "site"
+      ],
+      "object_id": "1",
+      "object_repr": "foodgram.tk",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Domain name\", \"Display name\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2020-09-19T08:41:02.374Z",
+      "user": [
+        "netshy"
+      ],
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "object_id": "1",
+      "object_repr": "/about-author/ -- Об авторе",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2020-09-19T08:41:24.985Z",
+      "user": [
+        "netshy"
+      ],
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "object_id": "2",
+      "object_repr": "/about-spec/ -- О технологиях",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+      "action_time": "2020-09-19T08:43:34.390Z",
+      "user": [
+        "netshy"
+      ],
+      "content_type": [
+        "users",
+        "user"
+      ],
+      "object_id": "1",
+      "object_repr": "admin",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+      "action_time": "2020-09-19T08:43:42.011Z",
+      "user": [
+        "netshy"
+      ],
+      "content_type": [
+        "users",
+        "user"
+      ],
+      "object_id": "1",
+      "object_repr": "netshy",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+      "action_time": "2020-09-19T09:05:03.337Z",
+      "user": [
+        "netshy"
+      ],
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "object_id": "1",
+      "object_repr": "/about-author/ -- Об авторе",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+      "action_time": "2020-09-19T09:05:41.267Z",
+      "user": [
+        "netshy"
+      ],
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "object_id": "1",
+      "object_repr": "/about-author/ -- Об авторе",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+      "action_time": "2020-09-19T09:08:03.986Z",
+      "user": [
+        "netshy"
+      ],
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "object_id": "1",
+      "object_repr": "/about-author/ -- Об авторе",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+      "action_time": "2020-09-19T09:12:34.183Z",
+      "user": [
+        "netshy"
+      ],
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "object_id": "1",
+      "object_repr": "/about-author/ -- Об авторе",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+      "action_time": "2020-09-19T09:23:39.634Z",
+      "user": [
+        "netshy"
+      ],
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "object_id": "1",
+      "object_repr": "/about-author/ -- Об авторе",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+      "action_time": "2020-09-19T09:24:29.251Z",
+      "user": [
+        "netshy"
+      ],
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "object_id": "1",
+      "object_repr": "/about-author/ -- Об авторе",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+      "action_time": "2020-09-19T09:24:48.835Z",
+      "user": [
+        "netshy"
+      ],
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "object_id": "1",
+      "object_repr": "/about-author/ -- Об авторе",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+      "action_time": "2020-09-19T09:27:49.296Z",
+      "user": [
+        "netshy"
+      ],
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "object_id": "2",
+      "object_repr": "/about-spec/ -- О технологиях",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+      "action_time": "2020-09-19T09:28:12.281Z",
+      "user": [
+        "netshy"
+      ],
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "object_id": "2",
+      "object_repr": "/about-spec/ -- О технологиях",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+      "action_time": "2020-09-19T09:28:47.433Z",
+      "user": [
+        "netshy"
+      ],
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "object_id": "2",
+      "object_repr": "/about-spec/ -- О технологиях",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+      "action_time": "2020-09-19T12:31:36.854Z",
+      "user": [
+        "netshy"
+      ],
+      "content_type": [
+        "flatpages",
+        "flatpage"
+      ],
+      "object_id": "2",
+      "object_repr": "/about-spec/ -- О технологиях",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
     }
   }
 ]
